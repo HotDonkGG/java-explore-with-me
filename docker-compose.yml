@@ -18,7 +18,8 @@ services:
     environment:
       - POSTGRES_DB=stats-server-db
       - POSTGRES_USER=postgres
-      -  POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    command: postgres -c listen_addresses='*'
 
   ewm-service:
     build: ./ewm-service
@@ -38,4 +39,5 @@ services:
     environment:
       - POSTGRES_DB=ewm-server-db
       - POSTGRES_USER=postgres
-      -  POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    command: postgres -c listen_addresses='*'
