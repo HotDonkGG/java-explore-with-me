@@ -17,8 +17,8 @@ services:
       - "6541:5432"
     environment:
       - POSTGRES_DB=stats-server-db
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
 
   ewm-service:
     build: ./ewm-service
@@ -37,5 +37,5 @@ services:
       - "6542:5432"
     environment:
       - POSTGRES_DB=ewm-server-db
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
