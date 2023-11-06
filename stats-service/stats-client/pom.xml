@@ -15,6 +15,13 @@
     <dependencies>
 
         <dependency>
+            <groupId>ru.yandex.practicum</groupId>
+            <artifactId>stats-dto</artifactId>
+            <version>${stats-dto}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -25,15 +32,14 @@
         </dependency>
 
         <dependency>
-            <groupId>ru.yandex.practicum</groupId>
-            <artifactId>stats-dto</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
 
     </dependencies>
 
     <properties>
+        <stats-dto>0.0.1-SNAPSHOT</stats-dto>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

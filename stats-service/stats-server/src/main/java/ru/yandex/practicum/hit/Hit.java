@@ -1,9 +1,10 @@
-package ru.yandex.practicum;
-
-import java.time.LocalDateTime;
-import javax.persistence.*;
+package ru.yandex.practicum.hit;
 
 import lombok.*;
+import lombok.experimental.FieldDefaults;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "hits", schema = "public")
@@ -12,6 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Hit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
