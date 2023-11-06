@@ -401,6 +401,7 @@ public class EventServiceImpl implements EventService {
      */
     private void sendInfo(String uri, String ip) {
         HitDto hitDto = HitDto.builder()
+                .id(123) //тест
                 .app("ewm-service")
                 .uri(uri)
                 .ip(ip)
