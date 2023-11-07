@@ -1,13 +1,11 @@
 package ru.yandex.practicum;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.experimental.FieldDefaults;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
@@ -16,16 +14,17 @@ import static ru.yandex.practicum.Util.DATE_FORMAT;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class HitDto {
-    private long id;
+    Long id;
     @NotBlank
-    private String app;
+    String app;
     @NotBlank
-    private String uri;
+    String uri;
     @NotBlank
-    private String ip;
-    @NotBlank
+    String ip;
+    @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
     LocalDateTime timestamp;
 }

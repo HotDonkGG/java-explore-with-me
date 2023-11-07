@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping(path = "/events")
 public class EventPublicController {
 
-    public EventService eventService;
+    public final EventService eventService;
 
     /**
      * Получение списка событий с краткой информацией для публичного просмотра.

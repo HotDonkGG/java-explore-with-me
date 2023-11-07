@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping(path = "/categories")
 public class CategoryPublicController {
 
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     /**
      * Возвращает список категорий с публичным доступом.

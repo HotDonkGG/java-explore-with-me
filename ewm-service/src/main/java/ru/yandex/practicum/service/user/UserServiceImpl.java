@@ -1,7 +1,6 @@
 package ru.yandex.practicum.service.user;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -18,11 +17,10 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private UnionService unionService;
+    private final UserRepository userRepository;
+    private final UnionService unionService;
 
     /**
      * Создает нового пользователя на основе предоставленных данных.

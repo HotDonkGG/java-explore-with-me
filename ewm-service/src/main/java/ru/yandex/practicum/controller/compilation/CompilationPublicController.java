@@ -18,7 +18,7 @@ import ru.yandex.practicum.dto.compilation.CompilationDto;
 @RequestMapping("/compilations")
 public class CompilationPublicController {
 
-    private CompilationService compilationService;
+    private final CompilationService compilationService;
 
     /**
      * Получает список компиляций с учетом флага закрепления и пагинацией.

@@ -18,7 +18,7 @@ import ru.yandex.practicum.dto.compilation.CompilationUpdateDto;
 @RequestMapping("/admin/compilations")
 public class CompilationAdminController {
 
-    private CompilationService compilationService;
+    private final CompilationService compilationService;
 
     /**
      * Добавляет новую компиляцию.

@@ -24,9 +24,9 @@ import java.util.List;
 @AllArgsConstructor
 public class CompilationServiceImpl implements CompilationService {
 
-    private CompilationRepository compilationRepository;
-    private EventRepository eventRepository;
-    private UnionService unionService;
+    private final CompilationRepository compilationRepository;
+    private final EventRepository eventRepository;
+    private final UnionService unionService;
 
     /**
      * Добавляет новую компиляцию событий.

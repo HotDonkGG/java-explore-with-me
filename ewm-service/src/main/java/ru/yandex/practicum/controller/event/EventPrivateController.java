@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping(path = "/users/{userId}/events")
 public class EventPrivateController {
 
-    private EventService eventService;
+    private final EventService eventService;
 
     /**
      * Создает новое событие для пользователя.

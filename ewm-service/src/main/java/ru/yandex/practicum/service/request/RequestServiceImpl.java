@@ -24,12 +24,11 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @AllArgsConstructor
-@NoArgsConstructor
 public class RequestServiceImpl implements RequestService {
 
-    private RequestRepository requestRepository;
-    private EventRepository eventRepository;
-    private UnionService unionService;
+    private final RequestRepository requestRepository;
+    private final EventRepository eventRepository;
+    private final UnionService unionService;
 
     /**
      * Создает новую заявку для указанного пользователя на указанное событие.

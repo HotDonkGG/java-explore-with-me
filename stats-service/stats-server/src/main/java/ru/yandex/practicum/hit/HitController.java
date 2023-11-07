@@ -18,7 +18,7 @@ import static ru.yandex.practicum.Util.FORMATTER;
 @RequiredArgsConstructor
 public class HitController {
 
-    private HitService hitService;
+    private final HitService hitService;
 
     /**
      * Добавляет новый хит.
@@ -28,7 +28,7 @@ public class HitController {
     @PostMapping("/hit")
     @ResponseStatus(value = HttpStatus.CREATED)
     public void addHit(@Valid @RequestBody HitDto hitDto) {
-        log.info("Hit Add");
+        log.info("Hit created");
         hitService.addHit(hitDto);
     }
 
@@ -44,10 +44,10 @@ public class HitController {
      */
     @GetMapping("/stats")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<StatsDto> findStats(@RequestParam("start") String start,
-                                    @RequestParam("end") String end,
-                                    @RequestParam(required = false) List<String> uris,
-                                    @RequestParam(required = false, defaultValue = "false") Boolean unique) {
+    public List<StatsDto> getStats(@RequestParam("start") String start,
+                                   @RequestParam("end") String end,
+                                   @RequestParam(required = false) List<String> uris,
+                                   @RequestParam(required = false, defaultValue = "false") Boolean unique) {
         LocalDateTime startTime = LocalDateTime.parse(start, FORMATTER);
         LocalDateTime endTime = LocalDateTime.parse(end, FORMATTER);
         log.info("Get stats");

@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping(path = "/admin/events")
 public class EventAdminController {
 
-    private EventService eventService;
+    private final EventService eventService;
 
     /**
      * Получает события администратора с определенными параметрами.

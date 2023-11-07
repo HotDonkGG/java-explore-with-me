@@ -14,14 +14,13 @@ import static ru.yandex.practicum.Util.FORMATTER;
 
 @Service
 @RequiredArgsConstructor
-@AllArgsConstructor
 public class UnionServiceImpl implements UnionService {
 
-    private UserRepository userRepository;
-    private CategoryRepository categoryRepository;
-    private EventRepository eventRepository;
-    private RequestRepository requestRepository;
-    private CompilationRepository compilationRepository;
+    private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
+    private final EventRepository eventRepository;
+    private final RequestRepository requestRepository;
+    private final CompilationRepository compilationRepository;
 
     /**
      * Получает пользователя по указанному идентификатору и возвращает его. Если пользователь не найден, генерируется исключение.

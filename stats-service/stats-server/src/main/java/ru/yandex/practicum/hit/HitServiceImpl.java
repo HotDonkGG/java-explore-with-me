@@ -11,12 +11,12 @@ import ru.yandex.practicum.exceptions.StatisticsValidationException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 @Slf4j
 @RequiredArgsConstructor
-@Service
 @Transactional(readOnly = true)
 public class HitServiceImpl implements HitService {
-    private HitRepository hitRepository;
+    private final HitRepository hitRepository;
 
     /**
      * Добавляет новый хит.

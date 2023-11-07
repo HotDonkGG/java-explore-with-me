@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/admin/categories")
 public class CategoryAdminController {
 
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     /**
      * Добавляет новую категорию.

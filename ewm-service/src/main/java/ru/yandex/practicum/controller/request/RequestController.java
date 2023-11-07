@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/users/{userId}/requests")
 public class RequestController {
-    private RequestService requestService;
+    private final RequestService requestService;
 
     /**
      * Создает новую заявку для указанного пользователя на указанное событие.

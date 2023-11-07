@@ -18,7 +18,7 @@ import ru.yandex.practicum.service.user.UserService;
 @RequiredArgsConstructor
 @RequestMapping(path = "/admin/users")
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
 
     /**
      * Создает нового пользователя на основе предоставленных данных.

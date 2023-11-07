@@ -47,11 +47,11 @@ import static ru.yandex.practicum.enums.State.PUBLISHED;
 @Transactional(readOnly = true)
 public class EventServiceImpl implements EventService {
 
-    private UnionService unionService;
-    private EventRepository eventRepository;
-    private RequestRepository requestRepository;
-    private LocationRepository locationRepository;
-    private StatsClient client;
+    private final UnionService unionService;
+    private final EventRepository eventRepository;
+    private final RequestRepository requestRepository;
+    private final LocationRepository locationRepository;
+    private final StatsClient client;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     /**
@@ -401,7 +401,6 @@ public class EventServiceImpl implements EventService {
      */
     private void sendInfo(String uri, String ip) {
         HitDto hitDto = HitDto.builder()
-                .id(123) //тест
                 .app("ewm-service")
                 .uri(uri)
                 .ip(ip)
