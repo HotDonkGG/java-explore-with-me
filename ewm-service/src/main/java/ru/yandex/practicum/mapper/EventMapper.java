@@ -27,7 +27,7 @@ public class EventMapper {
      * @param user        Пользователь-инициатор события.
      * @return Объект Event, созданный на основе предоставленных данных.
      */
-    public Event returnEvent(EventNewDto eventNewDto, Category category, Location location, User user) {
+    public static Event returnEvent(EventNewDto eventNewDto, Category category, Location location, User user) {
         Event event = Event.builder()
                 .annotation(eventNewDto.getAnnotation())
                 .category(category)
@@ -53,7 +53,7 @@ public class EventMapper {
      * @param event Объект Event, который необходимо преобразовать.
      * @return Объект EventFullDto, представляющий событие с полной информацией.
      */
-    public EventFullDto returnEventFullDto(Event event) {
+    public static EventFullDto returnEventFullDto(Event event) {
         EventFullDto eventFullDto = EventFullDto.builder()
                 .annotation(event.getAnnotation())
                 .category(CategoryMapper.returnCategoryDto(event.getCategory()))
@@ -81,7 +81,7 @@ public class EventMapper {
      * @param event Объект Event, который необходимо преобразовать.
      * @return Объект EventShortDto, представляющий событие с краткой информацией.
      */
-    public EventShortDto returnEventShortDto(Event event) {
+    public static EventShortDto returnEventShortDto(Event event) {
         EventShortDto eventShortDto = EventShortDto.builder()
                 .annotation(event.getAnnotation())
                 .category(CategoryMapper.returnCategoryDto(event.getCategory()))
@@ -102,7 +102,7 @@ public class EventMapper {
      * @param events Итерируемая коллекция объектов Event.
      * @return Список объектов EventFullDto, представляющих события с полной информацией.
      */
-    public List<EventFullDto> returnEventFullDtoList(Iterable<Event> events) {
+    public static List<EventFullDto> returnEventFullDtoList(Iterable<Event> events) {
         List<EventFullDto> result = new ArrayList<>();
 
         for (Event event : events) {
@@ -117,7 +117,7 @@ public class EventMapper {
      * @param events Итерируемая коллекция объектов Event.
      * @return Список объектов EventShortDto, представляющих события с краткой информацией.
      */
-    public List<EventShortDto> returnEventShortDtoList(Iterable<Event> events) {
+    public static List<EventShortDto> returnEventShortDtoList(Iterable<Event> events) {
         List<EventShortDto> result = new ArrayList<>();
         for (Event event : events) {
             result.add(returnEventShortDto(event));

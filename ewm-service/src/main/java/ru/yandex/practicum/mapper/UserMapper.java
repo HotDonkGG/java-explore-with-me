@@ -32,7 +32,7 @@ public class UserMapper {
      * @param user Объект типа User, который необходимо преобразовать.
      * @return Объект типа UserShortDto, представляющий краткую информацию о пользователе.
      */
-    public UserShortDto returnUserShortDto(User user) {
+    public static UserShortDto returnUserShortDto(User user) {
         UserShortDto userShortDto = UserShortDto.builder()
                 .id(user.getId())
                 .name(user.getName())

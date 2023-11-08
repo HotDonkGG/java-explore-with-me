@@ -13,7 +13,7 @@ public class LocationMapper {
      * @param location Объект Location, который необходимо преобразовать.
      * @return Объект LocationDto, представляющий преобразованные данные из Location.
      */
-    public LocationDto returnLocationDto(Location location) {
+    public static LocationDto returnLocationDto(Location location) {
         LocationDto locationDto = LocationDto.builder()
                 .lat(location.getLat())
                 .lon(location.getLon())
@@ -27,7 +27,7 @@ public class LocationMapper {
      * @param locationDto Объект LocationDto, который необходимо преобразовать.
      * @return Объект Location, представляющий преобразованные данные из LocationDto.
      */
-    public Location returnLocation(LocationDto locationDto) {
+    public static Location returnLocation(LocationDto locationDto) {
         Location location = Location.builder()
                 .lat(locationDto.getLat())
                 .lon(locationDto.getLon())

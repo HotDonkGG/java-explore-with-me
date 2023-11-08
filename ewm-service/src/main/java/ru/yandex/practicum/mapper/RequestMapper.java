@@ -38,7 +38,7 @@ public class RequestMapper {
      * @param user       Объект User, создающий заявку.
      * @return Объект Request, представляющий преобразованные данные из RequestDto.
      */
-    public Request returnRequest(RequestDto requestDto, Event event, User user) {
+    public static Request returnRequest(RequestDto requestDto, Event event, User user) {
         Request request = Request.builder()
                 .id(requestDto.getId())
                 .created(LocalDateTime.now())
