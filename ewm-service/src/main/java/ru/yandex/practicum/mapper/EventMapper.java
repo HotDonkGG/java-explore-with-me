@@ -117,9 +117,8 @@ public class EventMapper {
      * @param events Итерируемая коллекция объектов Event.
      * @return Список объектов EventShortDto, представляющих события с краткой информацией.
      */
-    public static List<EventShortDto> returnEventShortDtoList(Iterable<Event> events) {
+    public List<EventShortDto> returnEventShortDtoList(Iterable<Event> events) {
         List<EventShortDto> result = new ArrayList<>();
-
         for (Event event : events) {
             result.add(returnEventShortDto(event));
         }

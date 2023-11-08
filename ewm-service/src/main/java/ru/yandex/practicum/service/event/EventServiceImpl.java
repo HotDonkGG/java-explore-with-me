@@ -120,7 +120,8 @@ public class EventServiceImpl implements EventService {
             throw new ConflictException(String.format("User %s is not the initiator of the event %s.", userId, eventId));
         }
         if (event.getState().equals(PUBLISHED)) {
-            throw new ConflictException(String.format("User %s cannot update event %s that has already been published.", userId, eventId));
+            throw new ConflictException(String.format("User %s cannot update event %s that has already been published.",
+                    userId, eventId));
         }
         Event updateEvent = baseUpdateEvent(event, eventUpdateDto);
         return EventMapper.returnEventFullDto(updateEvent);
@@ -138,9 +139,7 @@ public class EventServiceImpl implements EventService {
         User user = unionService.getUserOrNotFound(userId);
         Event event = unionService.getEventOrNotFound(eventId);
         if (!user.getId().equals(event.getInitiator().getId())) {
-            throw new ConflictException(String.format("User %s is not the initiator of the event %s.",
-                    userId,
-                    eventId));
+            throw new ConflictException(String.format("User %s is not the initiator of the event %s.", userId, eventId));
         }
         List<Request> requests = requestRepository.findByEventId(eventId);
         return RequestMapper.returnRequestDtoList(requests);
@@ -213,13 +212,15 @@ public class EventServiceImpl implements EventService {
         if (eventUpdateDto.getStateAction() != null) {
             if (eventUpdateDto.getStateAction().equals(StateAction.PUBLISH_EVENT)) {
                 if (!event.getState().equals(State.PENDING)) {
-                    throw new ConflictException(String.format("Event - %s, has already been published, cannot be published again ", event.getTitle()));
+                    throw new ConflictException(String.format("Event - %s, has already been published," +
+                            " cannot be published again ", event.getTitle()));
                 }
                 event.setPublishedOn(LocalDateTime.now());
-                event.setState(PUBLISHED);
+                event.setState(State.PUBLISHED);
             } else {
                 if (!event.getState().equals(State.PENDING)) {
-                    throw new ConflictException(String.format("Event - %s, cannot be canceled because its statute is not \"PENDING\"", event.getTitle()));
+                    throw new ConflictException(String.format("Event - %s, cannot be canceled because," +
+                            " its statute is not \"PENDING\"", event.getTitle()));
                 }
                 event.setState(State.CANCELED);
             }
@@ -262,12 +263,8 @@ public class EventServiceImpl implements EventService {
             }
         }
         PageRequest pageRequest = PageRequest.of(from / size, size);
-        List<Event> events = eventRepository.findEventsByAdminFromParam(users,
-                statesValue,
-                categories,
-                startTime,
-                endTime,
-                pageRequest);
+        List<Event> events = eventRepository.findEventsByAdminFromParam(users, statesValue,
+                categories, startTime, endTime, pageRequest);
         return EventMapper.returnEventFullDtoList(events);
     }
 
@@ -416,6 +413,7 @@ public class EventServiceImpl implements EventService {
      * @return Количество просмотров события.
      */
     private Long getViewsEventById(Long eventId) {
+
         String uri = "/events/" + eventId;
         ResponseEntity<Object> response = client.findStats(START_HISTORY, LocalDateTime.now(), uri, true);
         List<StatsDto> result = objectMapper.convertValue(response.getBody(), new TypeReference<>() {

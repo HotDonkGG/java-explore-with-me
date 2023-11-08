@@ -43,20 +43,19 @@ public class EventPublicController {
                                                  @RequestParam(required = false, name = "paid") Boolean paid,
                                                  @RequestParam(required = false, name = "rangeStart") String rangeStart,
                                                  @RequestParam(required = false, name = "rangeEnd") String rangeEnd,
-                                                 @RequestParam(required = false, defaultValue = "false",
-                                                         name = "onlyAvailable") Boolean onlyAvailable,
+                                                 @RequestParam(required = false,
+                                                         defaultValue = "false", name = "onlyAvailable") Boolean onlyAvailable,
                                                  @RequestParam(required = false, name = "sort") String sort,
                                                  @PositiveOrZero @RequestParam(name = "from", defaultValue = "0") Integer from,
                                                  @Positive @RequestParam(name = "size", defaultValue = "10") Integer size,
                                                  HttpServletRequest request) {
         String uri = request.getRequestURI();
         String ip = request.getRemoteAddr();
-        log.info("Get all events for public witch short info from parameters:" +
-                        " text = {}, categories = {}, paid = {}, rangeStart = {}," +
-                        " rangeEnd = {}, onlyAvailable = {}, sort= {}, from = {}, size = {}",
+        log.info("Get all events for public witch short info from parameters: text = {}, categories = {}," +
+                        " paid = {}, rangeStart = {}, rangeEnd = {}, onlyAvailable = {}, sort= {}, from = {}, size = {}",
                 text, categories, paid, rangeStart, rangeEnd, onlyAvailable, sort, from, size);
-        return eventService.getEventsByPublic(text, categories, paid, rangeStart, rangeEnd,
-                onlyAvailable, sort, from, size, uri, ip);
+        return eventService.getEventsByPublic(text, categories, paid, rangeStart, rangeEnd, onlyAvailable,
+                sort, from, size, uri, ip);
     }
 
     /**

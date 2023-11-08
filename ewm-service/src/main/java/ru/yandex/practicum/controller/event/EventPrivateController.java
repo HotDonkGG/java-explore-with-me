@@ -86,7 +86,6 @@ public class EventPrivateController {
     public EventFullDto updateEventByUserId(@RequestBody @Valid EventUpdateDto eventUpdateDto,
                                             @PathVariable Long userId,
                                             @PathVariable Long eventId) {
-
         log.info("User id {}, update Event {} ", eventId, eventUpdateDto.getAnnotation());
         return eventService.updateEventByUserId(eventUpdateDto, userId, eventId);
     }
