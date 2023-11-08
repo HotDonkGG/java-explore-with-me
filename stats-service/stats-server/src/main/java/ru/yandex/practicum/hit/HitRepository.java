@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface HitRepository extends JpaRepository<Hit, Long> {
+public interface    HitRepository extends JpaRepository<Hit, Long> {
 
     @Query(value = "SELECT new ru.yandex.practicum.StatsDto(h.app, h.uri, COUNT(h.ip)) " +
             "FROM Hit AS h " +

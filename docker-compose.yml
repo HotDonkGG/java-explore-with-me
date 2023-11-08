@@ -35,6 +35,7 @@ services:
       - ewm-db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://ewm-db:5432/ewm-server-db
+      - STATS-SERVER.URL=http://STATS-SERVER:9090
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=trust
     command: postgres -c listen_addresses='*'

@@ -47,7 +47,7 @@ public class HitServiceImpl implements HitService {
         }
         if (uris == null || uris.isEmpty()) {
             if (unique) {
-                log.info("Get all stats by uniq ip");
+                log.info("Get all stats by unique ip");
                 return hitRepository.findAllStatsByUniqueIp(start, end);
             } else {
                 log.info("Get all stats");
@@ -55,7 +55,7 @@ public class HitServiceImpl implements HitService {
             }
         } else {
             if (unique) {
-                log.info("Get all stats by uri and uniq ip");
+                log.info("Get all stats by uri and unique ip");
                 return hitRepository.findStatsByUrisByUniqueIp(start, end, uris);
             } else {
                 log.info("Get all stats by uri");

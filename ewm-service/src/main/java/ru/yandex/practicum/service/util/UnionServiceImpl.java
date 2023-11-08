@@ -81,9 +81,7 @@ public class UnionServiceImpl implements UnionService {
      */
     @Override
     public Request getRequestOrNotFound(Long requestId) {
-
         Optional<Request> request = requestRepository.findById(requestId);
-
         if (request.isEmpty()) {
             throw new NotFoundException(Request.class, "Request id " + requestId + " not found.");
         } else {
