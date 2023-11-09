@@ -17,6 +17,7 @@ import ru.yandex.practicum.service.util.UnionService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -38,9 +39,7 @@ public class CompilationServiceImpl implements CompilationService {
     @Transactional
     public CompilationDto addCompilation(CompilationNewDto compilationNewDto) {
         Compilation compilation = CompilationMapper.returnCompilation(compilationNewDto);
-        if (compilation.getPinned() == null) {
-            compilation.setPinned(false);
-        }
+        compilation.setPinned(Objects.isNull(compilation.getPinned()) ? false : compilation.getPinned());
         if (compilationNewDto.getEvents() == null || compilationNewDto.getEvents().isEmpty()) {
             compilation.setEvents(Collections.emptySet());
         } else {
@@ -73,9 +72,7 @@ public class CompilationServiceImpl implements CompilationService {
     @Transactional
     public CompilationDto updateCompilation(Long compId, CompilationUpdateDto compilationUpdateDto) {
         Compilation compilation = unionService.getCompilationOrNotFound(compId);
-        if (compilation.getPinned() == null) {
-            compilation.setPinned(false);
-        }
+        compilation.setPinned(Objects.isNull(compilation.getPinned()) ? false : compilation.getPinned());
         if (compilationUpdateDto.getEvents() == null || compilationUpdateDto.getEvents().isEmpty()) {
             compilation.setEvents(Collections.emptySet());
         } else {

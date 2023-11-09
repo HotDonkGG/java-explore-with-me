@@ -15,14 +15,18 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Compilation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     Long id;
+
     @Column(name = "pinned")
     Boolean pinned;
+
     @Column(name = "title")
     String title;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "compilations_events",
             joinColumns = @JoinColumn(name = "compilation_id"),

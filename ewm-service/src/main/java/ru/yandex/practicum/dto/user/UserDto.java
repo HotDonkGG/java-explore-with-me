@@ -13,10 +13,13 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserDto {
+
     Long id;
+
     @Size(min = 2, max = 250)
     @NotBlank
     String name;
+
     @Email
     @Size(min = 6, max = 254)
     @NotBlank

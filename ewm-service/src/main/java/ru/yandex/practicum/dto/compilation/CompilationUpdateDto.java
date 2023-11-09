@@ -12,8 +12,11 @@ import java.util.Set;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CompilationUpdateDto {
+
     Set<Long> events;
+
     Boolean pinned;
+
     @Size(min = 1, max = 50)
     String title;
 }

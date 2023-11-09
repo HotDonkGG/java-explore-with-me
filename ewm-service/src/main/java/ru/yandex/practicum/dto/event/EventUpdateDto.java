@@ -18,19 +18,29 @@ import static ru.yandex.practicum.Util.DATE_FORMAT;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventUpdateDto {
+
     @Size(min = 20, max = 2000)
     String annotation;
+
     Long category;
+
     @Size(min = 20, max = 7000)
     String description;
+
     @FutureOrPresent
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
     LocalDateTime eventDate;
+
     LocationDto location;
+
     Boolean paid;
+
     Long participantLimit;
+
     Boolean requestModeration;
+
     StateAction stateAction;
+
     @Size(min = 3, max = 120)
     String title;
 }

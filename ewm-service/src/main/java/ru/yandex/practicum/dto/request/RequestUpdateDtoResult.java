@@ -11,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RequestUpdateDtoResult {
+
     List<RequestDto> confirmedRequests;
+
     List<RequestDto> rejectedRequests;
 }

@@ -16,14 +16,23 @@ import static ru.yandex.practicum.Util.DATE_FORMAT;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventShortDto {
+
     String annotation;
+
     CategoryDto category;
+
     Long confirmedRequests;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT)
     LocalDateTime eventDate;
+
     Long id;
+
     UserShortDto initiator;
+
     Boolean paid;
+
     String title;
+
     Long views;
 }
