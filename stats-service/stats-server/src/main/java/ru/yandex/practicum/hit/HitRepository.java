@@ -1,15 +1,16 @@
-package ru.yandex.practicum;
+package ru.yandex.practicum.hit;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import ru.yandex.practicum.StatsDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface HitRepository extends JpaRepository<Hit, Long> {
+public interface    HitRepository extends JpaRepository<Hit, Long> {
 
     @Query(value = "SELECT new ru.yandex.practicum.StatsDto(h.app, h.uri, COUNT(h.ip)) " +
             "FROM Hit AS h " +

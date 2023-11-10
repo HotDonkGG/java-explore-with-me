@@ -1,4 +1,7 @@
-package ru.yandex.practicum;
+package ru.yandex.practicum.hit;
+
+import ru.yandex.practicum.HitDto;
+import ru.yandex.practicum.StatsDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,5 +23,5 @@ public interface HitService {
      * @param unique флаг, указывающий, считать ли уникальные хиты
      * @return список объектов со статистикой по хитам
      */
-    List<StatsDto> findStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique);
+    List<StatsDto> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique);
 }
