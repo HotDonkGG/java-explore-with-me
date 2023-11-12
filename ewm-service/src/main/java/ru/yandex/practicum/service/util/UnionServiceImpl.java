@@ -20,6 +20,7 @@ public class UnionServiceImpl implements UnionService {
     private final EventRepository eventRepository;
     private final RequestRepository requestRepository;
     private final CompilationRepository compilationRepository;
+    private final CommentRepository commentRepository;
 
     /**
      * Получает пользователя по указанному идентификатору и возвращает его. Если пользователь не найден, генерируется исключение.
@@ -121,4 +122,19 @@ public class UnionServiceImpl implements UnionService {
             return null;
         }
     }
+
+
+    ////////////////////////////////////////////////////////////////
+    @Override
+    public Comment getCommentOrNotFound(Long commentId) {
+        Optional<Comment> comment = commentRepository.findById(commentId);
+
+        if (comment.isEmpty()) {
+            throw new NotFoundException(Comment.class, "Comment id " + commentId + " not found.");
+        } else {
+            return comment.get();
+        }
+    }
+
+    ///////
 }

@@ -14,4 +14,6 @@ public class Util {
             1,
             0,
             0);
+
+    public static final LocalDateTime CURRENT_TIME = LocalDateTime.now();
 }
