@@ -559,7 +559,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"message\": \"add event1 for user 2\"\n}"
+          "raw": "{\n  \"message\": \"add event 1 for user 2\"\n}"
         },
         "url": {
           "raw": "{{baseUrl}}/users/:userId/comments/:eventId",
@@ -979,7 +979,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"User2Test\",\n  \"email\": \"User2Test@hotmail.com\"\n}"
+          "raw": "{\n  \"name\": \"User2Test\",\n  \"email\": \"User2Test@yandex.ru\"\n}"
         },
         "url": {
           "raw": "{{baseUrl}}/admin/users",
