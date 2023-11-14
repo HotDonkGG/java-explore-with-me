@@ -25,7 +25,6 @@ public class CategoryMapper {
 
     /**
      * Преобразует объект типа CategoryDto в объект типа Category.
-     *
      * @param categoryDto Объект типа CategoryDto, который необходимо преобразовать.
      * @return Объект типа Category, представляющий информацию о категории.
      */
