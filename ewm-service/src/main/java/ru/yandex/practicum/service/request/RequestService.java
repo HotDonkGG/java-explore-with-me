@@ -8,12 +8,6 @@ public interface RequestService {
 
     RequestDto addRequest(Long userId, Long eventId);
 
-    /**
-     * Возвращает список заявок, созданных указанным пользователем.
-     *
-     * @param userId Идентификатор пользователя.
-     * @return Список RequestDto, представляющий заявки пользователя.
-     */
     List<RequestDto> getRequestsByUserId(Long userId);
 
     /**
