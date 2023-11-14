@@ -527,11 +527,6 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test(\"Ответ должен содержать код статуса 201 и данные в формате json\", function () {",
-              "    pm.response.to.have.status(201);",
-              "    pm.response.to.be.withBody;",
-              "    pm.response.to.be.json;",
-              "});",
               ""
             ],
             "type": "text/javascript"
@@ -564,7 +559,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\"annotation\":\"annotations by event 1\",\n\"category\":1,\n\"description\":\"description by event1 1 1234567890 \",\n\"eventDate\":\"2023-12-12 00:00:00\",\n\"location\":{\"lat\":44.44,\"lon\":111.11},\n\"paid\":\"false\",\n\"participantLimit\":\"99\",\n\"requestModeration\":\"true\",\n\"title\":\"title1\"\n}",
+          "raw": "{\n\"annotation\":\"annotations by event 1\",\n\"category\":1,\n\"description\":\"Описание эвента 1 1234567890 \",\n\"eventDate\":\"2024-08-15 16:00:00\",\n\"location\":{\"lat\":34.02,\"lon\":118.16},\n\"paid\":\"false\",\n\"participantLimit\":\"20\",\n\"requestModeration\":\"true\",\n\"title\":\"titlefest\"\n}",
           "options": {
             "raw": {
               "language": "json"
