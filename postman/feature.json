@@ -554,7 +554,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"User1Test\",\n  \"email\": \"User1Test@gmail.com\"\n}"
+          "raw": "{\n  \"name\": \"User1test\",\n  \"email\": \"User1test@gmail.com\"\n}"
         },
         "url": {
           "raw": "{{baseUrl}}/admin/users",
