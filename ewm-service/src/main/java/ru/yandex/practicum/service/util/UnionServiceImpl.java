@@ -91,7 +91,8 @@ public class UnionServiceImpl implements UnionService {
     }
 
     /**
-     * Получает компиляцию по указанному идентификатору и возвращает ее. Если компиляция не найдена, генерируется исключение.
+     * Получает компиляцию по указанному идентификатору и возвращает ее. Если компиляция не найдена,
+     * генерируется исключение.
      *
      * @param compId Идентификатор компиляции.
      * @return Объект Compilation, представляющий найденную компиляцию.
@@ -123,18 +124,13 @@ public class UnionServiceImpl implements UnionService {
         }
     }
 
-
-    ////////////////////////////////////////////////////////////////
     @Override
     public Comment getCommentOrNotFound(Long commentId) {
         Optional<Comment> comment = commentRepository.findById(commentId);
-
         if (comment.isEmpty()) {
             throw new NotFoundException(Comment.class, "Comment id " + commentId + " not found.");
         } else {
             return comment.get();
         }
     }
-
-    ///////
 }

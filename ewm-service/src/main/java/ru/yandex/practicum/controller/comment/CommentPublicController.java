@@ -19,16 +19,6 @@ public class CommentPublicController {
 
     private final CommentService commentService;
 
-    /**
-     * Получает список кратких описаний комментариев по идентификатору события.
-     *
-     * @param eventId    Идентификатор события.
-     * @param rangeStart Необязательный параметр, указывающий начальную дату для получения комментариев.
-     * @param rangeEnd   Необязательный параметр, указывающий конечную дату для получения комментариев.
-     * @param from       Начальный индекс результирующего набора (по умолчанию 0).
-     * @param size       Количество комментариев для получения (по умолчанию 10).
-     * @return Список объектов CommentShortDto, представляющих полученные короткие описания комментариев.
-     */
     @GetMapping("{eventId}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<CommentShortDto> getCommentsByEventId(@PathVariable Long eventId,

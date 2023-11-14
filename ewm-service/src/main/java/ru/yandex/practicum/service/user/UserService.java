@@ -6,19 +6,8 @@ import java.util.List;
 
 public interface UserService {
 
-    /**
-     * Создает нового пользователя на основе предоставленных данных.
-     *
-     * @param userDto Объект UserDto, представляющий нового пользователя.
-     * @return Объект UserDto, представляющий созданного пользователя.
-     */
     UserDto addUser(UserDto userDto);
 
-    /**
-     * Удаляет пользователя с указанным идентификатором.
-     *
-     * @param userId Идентификатор пользователя, который будет удален.
-     */
     void deleteUser(long userId);
 
     /**

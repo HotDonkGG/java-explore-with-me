@@ -19,6 +19,7 @@ import ru.yandex.practicum.service.util.UnionService;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import static ru.yandex.practicum.Util.CURRENT_TIME;
 
@@ -31,14 +32,6 @@ public class CommentServiceImpl implements CommentService {
     private final UnionService unionService;
     private final CommentRepository commentRepository;
 
-    /**
-     * Добавляет новый комментарий к событию.
-     *
-     * @param userId        Идентификатор пользователя, оставляющего комментарий.
-     * @param eventId       Идентификатор события, к которому оставляется комментарий.
-     * @param commentNewDto DTO нового комментария.
-     * @return DTO полной информации о добавленном комментарии.
-     */
     @Override
     @Transactional
     public CommentFullDto addComment(Long userId, Long eventId, CommentNewDto commentNewDto) {
@@ -103,15 +96,13 @@ public class CommentServiceImpl implements CommentService {
                                                      Long userId, Integer from, Integer size) {
         unionService.getUserOrNotFound(userId);
         PageRequest pageRequest = PageRequest.of(from / size, size);
-        LocalDateTime startTime = unionService.parseDate(rangeStart);
-        LocalDateTime endTime = unionService.parseDate(rangeEnd);
-        if (startTime != null && endTime != null) {
-            if (startTime.isAfter(endTime)) {
-                throw new ValidationException("Start must be after End");
-            }
-            if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
-                throw new ValidationException("date must be the past");
-            }
+        LocalDateTime startTime = Objects.requireNonNull(unionService.parseDate(rangeStart));
+        LocalDateTime endTime = Objects.requireNonNull(unionService.parseDate(rangeEnd));
+        if (startTime.isAfter(endTime)) {
+            throw new ValidationException("Start must be after End");
+        }
+        if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
+            throw new ValidationException("date must be the past");
         }
         List<Comment> commentList = commentRepository.getCommentsByUserId(userId, startTime, endTime, pageRequest);
         return CommentMapper.returnCommentShortDtoList(commentList);
@@ -120,34 +111,27 @@ public class CommentServiceImpl implements CommentService {
     /**
      * Получает список полных описаний комментариев с учетом дополнительных параметров.
      *
-     * @param rangeStart Начальная дата для фильтрации комментариев (необязательный параметр).
-     * @param rangeEnd   Конечная дата для фильтрации комментариев (необязательный параметр).
-     * @param from       Начальный индекс результирующего набора (по умолчанию 0).
-     * @param size       Количество комментариев для получения (по умолчанию 10).
+     * @param rangeStart Начальная дата для фильтрации комментариев.
+     * @param rangeEnd   Конечная дата для фильтрации комментариев.
+     * @param from       Начальный индекс результирующего набора.
+     * @param size       Количество комментариев для получения.
      * @return Список объектов CommentFullDto, представляющих полные описания комментариев.
      */
     @Override
     public List<CommentFullDto> getComments(String rangeStart, String rangeEnd, Integer from, Integer size) {
         PageRequest pageRequest = PageRequest.of(from / size, size);
-        LocalDateTime startTime = unionService.parseDate(rangeStart);
-        LocalDateTime endTime = unionService.parseDate(rangeEnd);
-        if (startTime != null && endTime != null) {
-            if (startTime.isAfter(endTime)) {
-                throw new ValidationException("Start must be after End");
-            }
-            if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
-                throw new ValidationException("date must be the past");
-            }
+        LocalDateTime startTime = Objects.requireNonNull(unionService.parseDate(rangeStart));
+        LocalDateTime endTime = Objects.requireNonNull(unionService.parseDate(rangeEnd));
+        if (startTime.isAfter(endTime)) {
+            throw new ValidationException("Start must be after End");
+        }
+        if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
+            throw new ValidationException("date must be the past");
         }
         List<Comment> commentList = commentRepository.getComments(startTime, endTime, pageRequest);
         return CommentMapper.returnCommentFullDtoList(commentList);
     }
 
-    /**
-     * Удаляет комментарий администратором.
-     *
-     * @param commentId Идентификатор удаляемого комментария.
-     */
     @Override
     @Transactional
     public void deleteAdminComment(Long commentId) {
@@ -158,11 +142,11 @@ public class CommentServiceImpl implements CommentService {
     /**
      * Получает список кратких описаний комментариев для указанного события.
      *
-     * @param rangeStart Начальная дата для фильтрации комментариев (необязательный параметр).
-     * @param rangeEnd   Конечная дата для фильтрации комментариев (необязательный параметр).
+     * @param rangeStart Начальная дата для фильтрации комментариев.
+     * @param rangeEnd   Конечная дата для фильтрации комментариев.
      * @param eventId    Идентификатор события, комментарии к которому необходимо получить.
-     * @param from       Начальный индекс результирующего набора (по умолчанию 0).
-     * @param size       Количество комментариев для получения (по умолчанию 10).
+     * @param from       Начальный индекс результирующего набора.
+     * @param size       Количество комментариев для получения.
      * @return Список объектов CommentShortDto, представляющих краткие описания комментариев к событию.
      */
     @Override
@@ -170,15 +154,13 @@ public class CommentServiceImpl implements CommentService {
                                                       Integer from, Integer size) {
         unionService.getEventOrNotFound(eventId);
         PageRequest pageRequest = PageRequest.of(from / size, size);
-        LocalDateTime startTime = unionService.parseDate(rangeStart);
-        LocalDateTime endTime = unionService.parseDate(rangeEnd);
-        if (startTime != null && endTime != null) {
-            if (startTime.isAfter(endTime)) {
-                throw new ValidationException("Start must be after End");
-            }
-            if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
-                throw new ValidationException("date must be the past");
-            }
+        LocalDateTime startTime = Objects.requireNonNull(unionService.parseDate(rangeStart));
+        LocalDateTime endTime = Objects.requireNonNull(unionService.parseDate(rangeEnd));
+        if (startTime.isAfter(endTime)) {
+            throw new ValidationException("Start must be after End");
+        }
+        if (endTime.isAfter(CURRENT_TIME) || startTime.isAfter(CURRENT_TIME)) {
+            throw new ValidationException("date must be the past");
         }
         List<Comment> commentList = commentRepository.getCommentsByEventId(eventId, startTime, endTime, pageRequest);
         return CommentMapper.returnCommentShortDtoList(commentList);

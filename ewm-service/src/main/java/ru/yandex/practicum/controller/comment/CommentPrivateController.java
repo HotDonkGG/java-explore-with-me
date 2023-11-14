@@ -22,14 +22,6 @@ public class CommentPrivateController {
 
     private final CommentService commentService;
 
-    /**
-     * Добавляет новый комментарий к событию.
-     *
-     * @param commentNewDto Объект с информацией о новом комментарии.
-     * @param userId        Идентификатор пользователя.
-     * @param eventId       Идентификатор события.
-     * @return Объект CommentFullDto, представляющий добавленный комментарий.
-     */
     @PostMapping("/{eventId}")
     @ResponseStatus(value = HttpStatus.CREATED)
     public CommentFullDto addComment(@Valid @RequestBody CommentNewDto commentNewDto,
@@ -38,14 +30,6 @@ public class CommentPrivateController {
         return commentService.addComment(userId, eventId, commentNewDto);
     }
 
-    /**
-     * Обновляет существующий комментарий.
-     *
-     * @param commentNewDto Объект с информацией о новом комментарии.
-     * @param userId        Идентификатор пользователя.
-     * @param commentId     Идентификатор комментария.
-     * @return Объект CommentFullDto, представляющий обновлённый комментарий.
-     */
     @PatchMapping("/{commentId}")
     @ResponseStatus(value = HttpStatus.OK)
     public CommentFullDto updateComment(@Valid @RequestBody CommentNewDto commentNewDto,
@@ -54,12 +38,6 @@ public class CommentPrivateController {
         return commentService.updateComment(userId, commentId, commentNewDto);
     }
 
-    /**
-     * Удаляет комментарий пользователя по его идентификатору.
-     *
-     * @param userId    Идентификатор пользователя.
-     * @param commentId Идентификатор удаляемого комментария.
-     */
     @DeleteMapping("/{commentId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteComment(@PathVariable Long userId,
@@ -67,16 +45,6 @@ public class CommentPrivateController {
         commentService.deletePrivateComment(userId, commentId);
     }
 
-    /**
-     * Получает список коротких описаний комментариев пользователя на основе указанных параметров.
-     *
-     * @param userId     Идентификатор пользователя.
-     * @param rangeStart Необязательный параметр, указывающий начальную дату для получения комментариев.
-     * @param rangeEnd   Необязательный параметр, указывающий конечную дату для получения комментариев.
-     * @param from       Начальный индекс результирующего набора (по умолчанию 0).
-     * @param size       Количество комментариев для получения (по умолчанию 10).
-     * @return Список объектов CommentShortDto, представляющих полученные короткие описания комментариев.
-     */
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public List<CommentShortDto> getCommentsByUserId(@PathVariable Long userId,

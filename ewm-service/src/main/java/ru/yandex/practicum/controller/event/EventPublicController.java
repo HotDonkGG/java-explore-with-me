@@ -58,13 +58,6 @@ public class EventPublicController {
                 sort, from, size, uri, ip);
     }
 
-    /**
-     * Получение полной информации о событии по его идентификатору.
-     *
-     * @param id      Идентификатор события.
-     * @param request Объект HttpServletRequest для получения информации о запросе.
-     * @return Объект EventFullDto, представляющий полную информацию о событии.
-     */
     @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public EventFullDto getEventById(@PathVariable Long id, HttpServletRequest request) {
