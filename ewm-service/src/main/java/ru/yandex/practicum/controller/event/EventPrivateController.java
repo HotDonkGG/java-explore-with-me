@@ -26,13 +26,6 @@ public class EventPrivateController {
 
     private final EventService eventService;
 
-    /**
-     * Создает новое событие для пользователя.
-     *
-     * @param eventNewDto Объект, содержащий информацию о новом событии.
-     * @param userId      Идентификатор пользователя, для которого создается событие.
-     * @return Созданное событие.
-     */
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public EventFullDto addEvent(@Valid @RequestBody EventNewDto eventNewDto,
@@ -41,14 +34,6 @@ public class EventPrivateController {
         return eventService.addEvent(userId, eventNewDto);
     }
 
-    /**
-     * Получает список событий пользователя.
-     *
-     * @param userId Идентификатор пользователя.
-     * @param from   Стартовая позиция в результате.
-     * @param size   Количество элементов на странице.
-     * @return Список событий пользователя.
-     */
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public List<EventShortDto> getAllEventsByUserId(@PathVariable Long userId,

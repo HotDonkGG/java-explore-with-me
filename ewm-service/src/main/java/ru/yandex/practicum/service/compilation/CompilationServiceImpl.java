@@ -29,12 +29,6 @@ public class CompilationServiceImpl implements CompilationService {
     private final EventRepository eventRepository;
     private final UnionService unionService;
 
-    /**
-     * Добавляет новую компиляцию событий.
-     *
-     * @param compilationNewDto Данные для создания новой компиляции.
-     * @return Объект CompilationDto, представляющий добавленную компиляцию.
-     */
     @Override
     @Transactional
     public CompilationDto addCompilation(CompilationNewDto compilationNewDto) {
@@ -49,11 +43,6 @@ public class CompilationServiceImpl implements CompilationService {
         return CompilationMapper.returnCompilationDto(compilation);
     }
 
-    /**
-     * Удаляет компиляцию по её идентификатору.
-     *
-     * @param compId Идентификатор компиляции, которую необходимо удалить.
-     */
     @Override
     @Transactional
     public void deleteCompilation(Long compId) {
@@ -61,13 +50,6 @@ public class CompilationServiceImpl implements CompilationService {
         compilationRepository.deleteById(compId);
     }
 
-    /**
-     * Обновляет существующую компиляцию по её идентификатору.
-     *
-     * @param compId               Идентификатор существующей компиляции, которую необходимо обновить.
-     * @param compilationUpdateDto Данные для обновления компиляции.
-     * @return Объект CompilationDto, представляющий обновленную компиляцию.
-     */
     @Override
     @Transactional
     public CompilationDto updateCompilation(Long compId, CompilationUpdateDto compilationUpdateDto) {

@@ -20,12 +20,6 @@ public class CompilationAdminController {
 
     private final CompilationService compilationService;
 
-    /**
-     * Добавляет новую компиляцию.
-     *
-     * @param compilationNewDto Объект, представляющий новую компиляцию.
-     * @return Объект CompilationDto, представляющий информацию о созданной компиляции.
-     */
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public CompilationDto addCompilation(@Valid @RequestBody CompilationNewDto compilationNewDto) {
@@ -33,11 +27,6 @@ public class CompilationAdminController {
         return compilationService.addCompilation(compilationNewDto);
     }
 
-    /**
-     * Удаляет компиляцию по ее идентификатору.
-     *
-     * @param compId Идентификатор компиляции, которую необходимо удалить.
-     */
     @DeleteMapping("/{compId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteCompilation(@PathVariable("compId") Long compId) {
@@ -45,13 +34,6 @@ public class CompilationAdminController {
         compilationService.deleteCompilation(compId);
     }
 
-    /**
-     * Обновляет информацию о компиляции по ее идентификатору.
-     *
-     * @param compilationUpdateDto Объект, содержащий данные для обновления компиляции.
-     * @param compId               Идентификатор компиляции, которую необходимо обновить.
-     * @return Объект CompilationDto, представляющий обновленную информацию о компиляции.
-     */
     @PatchMapping("/{compId}")
     @ResponseStatus(value = HttpStatus.OK)
     public CompilationDto updateCompilation(@Valid @RequestBody CompilationUpdateDto compilationUpdateDto,

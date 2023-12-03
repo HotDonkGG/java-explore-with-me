@@ -12,13 +12,6 @@ import java.util.List;
 
 public interface EventService {
 
-    /**
-     * Создает новое событие для указанного пользователя.
-     *
-     * @param userId      Идентификатор пользователя, создающего событие.
-     * @param eventnewDto Данные для создания нового события.
-     * @return Объект EventFullDto, представляющий созданное событие.
-     */
     EventFullDto addEvent(Long userId, EventNewDto eventnewDto);
 
     /**
@@ -106,7 +99,6 @@ public interface EventService {
 
     /**
      * Возвращает список краткой информации о событиях с учетом фильтрации и пагинации для общедоступных событий.
-     *
      * @param text          Текстовый запрос для поиска событий.
      * @param categories    Список идентификаторов категорий событий.
      * @param paid          Флаг, указывающий на платные события.
@@ -118,7 +110,8 @@ public interface EventService {
      * @param size          Размер страницы.
      * @param uri           URI запроса.
      * @param ip            IP-адрес клиента.
-     * @return Список EventShortDto, представляющий краткую информацию о общедоступных событиях с учетом фильтрации и пагинации.
+     * @return Список EventShortDto, представляющий краткую информацию о общедоступных событиях с
+     * учетом фильтрации и пагинации.
      */
     List<EventShortDto> getEventsByPublic(String text, List<Long> categories, Boolean paid,
                                           String startTime, String endTime, Boolean onlyAvailable,

@@ -8,28 +8,10 @@ import java.util.List;
 
 public interface CompilationService {
 
-    /**
-     * Добавляет новую компиляцию событий.
-     *
-     * @param compilationNewDto Данные для создания новой компиляции.
-     * @return Объект CompilationDto, представляющий добавленную компиляцию.
-     */
     CompilationDto addCompilation(CompilationNewDto compilationNewDto);
 
-    /**
-     * Удаляет компиляцию по её идентификатору.
-     *
-     * @param compId Идентификатор компиляции, которую необходимо удалить.
-     */
     void deleteCompilation(Long compId);
 
-    /**
-     * Обновляет существующую компиляцию по её идентификатору.
-     *
-     * @param compId               Идентификатор существующей компиляции, которую необходимо обновить.
-     * @param compilationUpdateDto Данные для обновления компиляции.
-     * @return Объект CompilationDto, представляющий обновленную компиляцию.
-     */
     CompilationDto updateCompilation(Long compId, CompilationUpdateDto compilationUpdateDto);
 
     /**
@@ -42,11 +24,5 @@ public interface CompilationService {
      */
     List<CompilationDto> getCompilations(Boolean pinned, Integer from, Integer size);
 
-    /**
-     * Получает компиляцию по её идентификатору.
-     *
-     * @param compId Идентификатор компиляции, которую необходимо получить.
-     * @return Объект CompilationDto, представляющий запрошенную компиляцию.
-     */
     CompilationDto getCompilationById(Long compId);
 }

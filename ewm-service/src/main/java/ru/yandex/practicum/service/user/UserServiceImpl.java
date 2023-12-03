@@ -54,11 +54,6 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    /**
-     * Удаляет пользователя с указанным идентификатором.
-     *
-     * @param userId Идентификатор пользователя, который будет удален.
-     */
     @Transactional
     @Override
     public void deleteUser(long userId) {

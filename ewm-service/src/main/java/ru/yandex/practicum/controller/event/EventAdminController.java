@@ -48,13 +48,6 @@ public class EventAdminController {
         return eventService.getEventsByAdmin(users, states, categories, rangeStart, rangeEnd, from, size);
     }
 
-    /**
-     * Обновляет событие администратором.
-     *
-     * @param eventUpdateDto Объект, содержащий информацию для обновления события.
-     * @param eventId        Идентификатор события, которое нужно обновить.
-     * @return Обновленное событие.
-     */
     @PatchMapping("/{eventId}")
     @ResponseStatus(value = HttpStatus.OK)
     public EventFullDto updateEventByAdmin(@Valid @RequestBody EventUpdateDto eventUpdateDto,

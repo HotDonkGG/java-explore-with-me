@@ -52,4 +52,6 @@ public interface UnionService {
      * @return Объект LocalDateTime, представляющий дату и время.
      */
     LocalDateTime parseDate(String date);
+
+    Comment getCommentOrNotFound(Long commentId);
 }

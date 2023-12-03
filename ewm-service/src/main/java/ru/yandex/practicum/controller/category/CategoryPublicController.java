@@ -21,13 +21,6 @@ public class CategoryPublicController {
 
     private final CategoryService categoryService;
 
-    /**
-     * Возвращает список категорий с публичным доступом.
-     *
-     * @param from Начальная позиция списка категорий (по умолчанию 0).
-     * @param size Количество категорий, возвращаемых в результате (по умолчанию 10).
-     * @return Список объектов CategoryDto, представляющих информацию о категориях.
-     */
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public List<CategoryDto> getCategories(@PositiveOrZero @RequestParam(name = "from", defaultValue = "0") Integer from,
@@ -36,12 +29,6 @@ public class CategoryPublicController {
         return categoryService.getCategories(from, size);
     }
 
-    /**
-     * Возвращает информацию о категории по ее идентификатору.
-     *
-     * @param categoryId Идентификатор категории, информацию о которой необходимо получить.
-     * @return Объект CategoryDto, представляющий информацию о категории.
-     */
     @GetMapping("/{catId}")
     @ResponseStatus(value = HttpStatus.OK)
     public CategoryDto getCategory(@PathVariable("catId") Long categoryId) {
