@@ -3,4 +3,5 @@
 
 О проекте
 
+<img width="1440" alt="explore" src="https://github.com/Kirillzhukov737/java-explore-with-me/assets/110101893/060a9841-3fdb-4900-a50c-21e280b73a46">
 
