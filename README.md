@@ -1,6 +1,18 @@
 # Explore With Me
 В рамках дипломного проекта реализовано приложение, представляющее из себя афишу, в которой пользователи могут предлагать мероприятия и собирать компанию для участия в них.
 
+<span style="font-size:24px;">***Используемые технологии:***</span>
+
+Java 11
+REST API
+Spring Boot
+Maven
+микросервисы, Docker
+PostgreSQL
+JPA, Hibernate
+Lombok
+Postman
+
 ***О проекте***
 
 <img width="1440" alt="explore" src="https://github.com/Kirillzhukov737/java-explore-with-me/assets/110101893/060a9841-3fdb-4900-a50c-21e280b73a46">
