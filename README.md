@@ -1,5 +1,2 @@
-# java-explore-with-me
-Template repository for ExploreWithMe project.
-
-PR feature_comments
-https://github.com/HotDonkGG/java-explore-with-me/pull/3
+# Explore With Me
+В рамках дипломного проекта реализовано приложение, представляющее из себя афишу, в которой пользователи могут предлагать мероприятия и собирать компанию для участия в них.
