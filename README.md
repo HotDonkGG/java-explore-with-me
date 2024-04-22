@@ -1,16 +1,25 @@
 # Explore With Me
 В рамках дипломного проекта реализовано приложение, представляющее из себя афишу, в которой пользователи могут предлагать мероприятия и собирать компанию для участия в них.
 
-<span style="font-size:24px;">***Используемые технологии:***</span>
+<span style="font-size:36px;">***Используемые технологии:***</span>
+
 
 Java 11
+
 REST API
+
 Spring Boot
+
 Maven
+
 микросервисы, Docker
+
 PostgreSQL
+
 JPA, Hibernate
+
 Lombok
+
 Postman
 
 ***О проекте***
